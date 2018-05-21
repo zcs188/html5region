@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" maximum-scale="1.0"  user-scalable="no"/>
+    <title>添加新地址</title>
+    <link rel="stylesheet" href="css/style-wap.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/banner.css"/>
+    <link rel="stylesheet" href="css/LArea.css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/click.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/font-size.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/gwc.js"></script>
+</head>
+<body>
+<!--顶部及搜索框-->
+<form action=""  onsubmit="return CheckForm();" method="post">
+    <div class="header">
+        <div class="back">
+            <a href="javascript:history.back();" class="to-back"></a>
+        </div>
+        <div class="title">
+            <p>添加新地址</p>
+        </div>
+        <div class="delete">
+            <button type="submit" class="delete-btn">保存</button>
+        </div>
+        <div class="clears"></div>
+    </div>
+    <!--顶部及搜索框 end-->
+    <div class="address-import mt15">
+        <label for="person-name">收货人</label>
+        <input type="text"  id="person-name" name="name" />
+        <div class="clears"></div>
+    </div>
+    <div class="address-import">
+        <label for="person-tel">联系电话</label>
+        <input type="text"  id="person-tel" name="tel"/>
+        <div class="clears"></div>
+    </div>
+    <div class="address-import">
+        <label for="person-area">所在地区</label>
+        <input id="demo2" type="text"  id="person-area" readonly placeholder="请选择" name="city">
+       
+        <input id="value2" type="hidden" />
+        <div class="clears"></div>
+    </div>
+   
+    <div class="address-import">
+        <label for="person-street">详细地址</label>
+        <div class="clears"></div>
+    </div>
+    <div class="import-textArea">
+        <textarea name="address" id="person-street" cols="30" rows="10" placeholder="请填写详细地址，不少于5字"></textarea>
+    </div>
+    <div class="address-import mt20">
+        <label>设为默认</label>
+        <div class="default fl">
+            <input type="checkbox" name="more" value="1" checked autocomplete="off"/>
+            
+        </div>
+        <input type="hidden" name="id" value="{imicms:$addr.id}">
+        <div class="clears"></div>
+    </div>
+</form>
+
+<!--撑高度-->
+<div class="height"></div>
+<!--撑高度 end-->
+<script src="js/LAreaData1.js"></script>
+    <script src="js/LAreaData2.js"></script>
+    <script src="js/LArea.js"></script>
+    <script>
+    var area2 = new LArea();
+    area2.init({
+        'trigger': '#demo2',
+        'valueTo': '#value2',
+        'keys': {
+            id: 'value',
+            name: 'text'
+        },
+        'type': 2,
+        'data': [provs_data, citys_data, dists_data]
+    });
+    </script>
+</body>
+<script type="text/javascript">
+function CheckForm(){ 
+
+if(document.getElementById('person-name').value==''){
+   alert('联系人不能为空');
+   document.getElementById('person-name').focus();
+   return false;
+}
+var partten = /^\d{11}$/;
+    if (!partten.test(document.getElementById("person-tel").value)) {
+        alert('请输入正确手机号');
+		 document.getElementById('person-tel').focus();
+        return false;
+    }
+if(document.getElementById('demo2').value==''){
+   alert('请选择地区');
+   document.getElementById('demo2').focus();
+   return false;
+}
+if(document.getElementById('person-street').value==''){
+   alert('详细地址不能为空');
+   document.getElementById('person-street').focus();
+   return false;
+}
+
+
+} 
+</script>
+</html>

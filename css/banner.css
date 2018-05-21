@@ -1,0 +1,58 @@
+/* ----------------------------------------------------banner部分属性样式设置 */
+
+.flexslider{ position: relative; zoom: 1;}
+
+.flexslider .slides img{ width:100%; display:block;}
+.slides:after {
+	content: ".";  display: block;  clear: both;  visibility: hidden;  line-height: 0;  height: 0;
+}
+html[xmlns] .slides{ display: block;}
+.no-js .slides > li:first-child{ display: block;}
+.flex-viewport{
+	max-height: 2000px;  -webkit-transition: all 1s ease;  -moz-transition:all 1s ease;  transition: all 1s ease;
+}
+.flexslider .slides{ zoom:1;}
+
+.flex-direction-nav a {
+	width: 60px;  height: 90px;  margin: -60px 0 0;  display: block;  background: url('') no-repeat 0 0;  position: absolute;  top: 50%;  z-index: 10;
+	cursor: pointer;  text-indent: -9999px;  opacity: 0;  filter:alpha(opacity=0);  -webkit-transition: all .3s ease;
+}
+.flex-direction-nav .flex-next{ background-position: 0 -90px; right: 0;}
+.flex-direction-nav .flex-prev{ left:0;}
+.flexslider:hover .flex-next{ opacity:0.8; filter:alpha(opacity=25);}
+.flexslider:hover .flex-prev{ opacity:0.8; filter:alpha(opacity=25);}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover{ opacity: 1; filter:alpha(opacity=50);}
+
+/* 分类设置项*/
+.banner,.sub-banner{ position:relative; overflow:hidden; background:#fff;}
+
+.banner .flexslider .slides li{
+	display:block;  height: 8.888rem;  overflow: hidden;  backface-visibility:hidden;
+	-webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
+	-moz-backface-visibility:hidden; 	/* Firefox */
+	-ms-backface-visibility:hidden; 	/* Internet Explorer */
+}
+.banner .flex-control-nav{ width: 100%; position: absolute; text-align: center; left:0; bottom:0;}
+.banner .flex-control-nav li{ margin: 0 3px; display: inline-block; zoom: 1; *display: inline;}
+.banner .flex-control-paging li a{
+	background:url('') no-repeat -14px 0px / auto 8px;  display:block;  height:10px;  overflow:hidden;  text-indent:-99em;  width:10px;  cursor:pointer;
+}
+.banner .flex-control-paging li a.flex-active{ background-position:0 0;}
+
+
+/*商品详情 banner*/
+.sub-banner .flexslider .slides li{
+	display:block;  height: 14.444rem;  overflow: hidden;  backface-visibility:hidden;
+	-webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
+	-moz-backface-visibility:hidden; 	/* Firefox */
+	-ms-backface-visibility:hidden; 	/* Internet Explorer */
+}
+.sub-banner .flex-control-nav{ width: 100%; height: 0.4rem; position: absolute; text-align: center; left:0; bottom:0.8rem; z-index: 99;}
+.sub-banner .flex-control-nav li{ margin: 0 3px; display: inline-block; zoom: 1; *display: inline;}
+.sub-banner .flex-control-paging li a{
+	background:url('../images/point01.png') left top no-repeat;  display:block;  overflow:hidden;
+	text-indent:-99em; height:0.4rem;  width: 0.4rem;  cursor:pointer; background-size: auto 100% ;
+}
+.sub-banner .flex-control-paging li a.flex-active{
+	background:url('../images/point02.png') left top no-repeat;  background-size: auto 100% ;
+}
